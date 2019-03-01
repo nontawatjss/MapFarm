@@ -9,19 +9,47 @@
 import UIKit
 import CoreData
 import GoogleMaps
+import FBSDKLoginKit
+import FBSDKCoreKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var mapView:GMSMapView!
+    var LLData = [GeoPoint]()
+    var selectID = ""
+    var AreaDistanc = 0.0
+    var LoginStatus = false
+    var UserDetail = [String: String]()
+    
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         GMSServices.provideAPIKey("AIzaSyBuDDu1TDhR3WIR24NvvMLlDhuJXieVZ-k")
         
-        return true
+        FirebaseApp.configure()
+        
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Prompt-Regular", size: 12)],for: .normal)
+        
+        
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Prompt-Medium", size: 22), NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(1.0)]
+        
+        
+     
+        
+          return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+   
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        
+        
+        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation:annotation)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

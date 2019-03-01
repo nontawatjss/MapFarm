@@ -8,8 +8,12 @@
 
 import UIKit
 
-class ManagerCell: UICollectionViewCell {
+class ManagerCell: UITableViewCell {
 
-  
-
+    @IBOutlet weak var NoLabel: UILabel!
+    
+    @IBOutlet weak var AreaLable: UILabel!
+    
+    @IBOutlet weak var BTdetail: UIButton!
+    @IBOutlet weak var TimeOutLable: UILabel!
 }

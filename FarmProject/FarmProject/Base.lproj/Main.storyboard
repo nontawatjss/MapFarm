@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UbG-c1-Cd7">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Iez-41-Emt">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -9,14 +9,619 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Prompt-Bold.ttf">
+            <string>Prompt-Bold</string>
+        </array>
+        <array key="Prompt-Regular.ttf">
+            <string>Prompt-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
+        <!--Alert Login View Controller-->
+        <scene sceneID="YJ8-1I-RxB">
+            <objects>
+                <viewController id="icg-G6-wW4" customClass="AlertLoginViewController" customModule="FarmProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4ts-ez-LTI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Qs-lJ-6OF">
+                                <rect key="frame" x="124" y="337" width="520" height="385"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coc-zA-5ET">
+                                        <rect key="frame" x="482" y="8" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="cancel"/>
+                                        <connections>
+                                            <action selector="CloseAction:" destination="icg-G6-wW4" eventType="touchUpInside" id="vir-Vy-9zX"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ชื่อบัญชีผู้ใช้" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYj-VD-NtR">
+                                        <rect key="frame" x="52" y="111" width="90" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="รหัสผ่าน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcj-ln-fdf">
+                                        <rect key="frame" x="52" y="164" width="62" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="26" translatesAutoresizingMaskIntoConstraints="NO" id="e5e-x4-vLd">
+                                        <rect key="frame" x="168" y="106" width="300" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" textContentType="username"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="26" translatesAutoresizingMaskIntoConstraints="NO" id="zZf-xA-usm">
+                                        <rect key="frame" x="168" y="159" width="300" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="เข้าสู่ระบบ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAL-38-3FC">
+                                        <rect key="frame" x="160" y="8" width="200" height="57"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Bold" family="Prompt" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbe-hV-oOg">
+                                        <rect key="frame" x="52" y="243" width="425" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.99607843139999996" green="0.76862745099999996" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="22"/>
+                                        <state key="normal" title="เข้าสู่ระบบ">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="LoginAction:" destination="icg-G6-wW4" eventType="touchUpInside" id="QUy-Ch-lQF"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="คุณลืมรหัสผ่านใช่หรือไม่?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMj-Et-Suk">
+                                        <rect key="frame" x="105" y="305" width="208" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <color key="textColor" red="0.52549019610000003" green="0.5568627451" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBe-8D-olm">
+                                        <rect key="frame" x="321" y="299" width="94" height="43"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <state key="normal" title="ลืมรหัสผ่าน">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ForgetPasswordAction:" destination="icg-G6-wW4" eventType="touchUpInside" id="yIg-5j-UoJ"/>
+                                            <segue destination="YDy-cX-s9g" kind="show" id="O59-Yy-RyG"/>
+                                        </connections>
+                                    </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Grf-DQ-cw2">
+                                        <rect key="frame" x="246" y="174" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="phS-YU-u4u"/>
+                    </view>
+                    <connections>
+                        <outlet property="ActivityLoading" destination="Grf-DQ-cw2" id="san-Vw-12n"/>
+                        <outlet property="CloseBT" destination="coc-zA-5ET" id="bf1-r7-eR9"/>
+                        <outlet property="LoginBT" destination="Zbe-hV-oOg" id="TBb-nR-rYC"/>
+                        <outlet property="PasswordInput" destination="zZf-xA-usm" id="6fe-0p-31y"/>
+                        <outlet property="UsernameInput" destination="e5e-x4-vLd" id="9Mt-CY-FNT"/>
+                        <outlet property="ViewAlertLogin" destination="0Qs-lJ-6OF" id="cVr-Ei-tEc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jra-Sw-U1A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1935" y="-1337"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AOp-NH-MJw">
+            <objects>
+                <viewController id="C2c-H7-o0a" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gvo-Vi-HdE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpr-vt-wst">
+                                <rect key="frame" x="97" y="496" width="180" height="180"/>
+                                <state key="normal" image="Farmermer"/>
+                                <connections>
+                                    <segue destination="tVi-ck-pch" kind="show" id="ObM-YQ-aCR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gie-dY-EjX">
+                                <rect key="frame" x="97" y="218" width="180" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="xaD-KD-pWQ"/>
+                                </constraints>
+                                <state key="normal" image="Manager2"/>
+                                <connections>
+                                    <segue destination="1Bj-tE-DvK" kind="show" id="u8x-BZ-mB9"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เจ้าของฟาร์ม" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiM-xB-Oj8">
+                                <rect key="frame" x="119" y="406" width="134" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="Z3L-85-qbu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Prompt-Bold" family="Prompt" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="เกษตรกร" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OuP-oK-KiZ">
+                                <rect key="frame" x="137" y="684" width="97" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Cra-Rn-KEB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Prompt-Bold" family="Prompt" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="คุณคือใคร ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nh-qw-Znu">
+                                <rect key="frame" x="48" y="132" width="279" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="itS-9K-eSf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Prompt-Bold" family="Prompt" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Gie-dY-EjX" firstAttribute="leading" secondItem="k9E-mU-xKL" secondAttribute="leading" constant="97" id="09E-om-Zug"/>
+                            <constraint firstItem="9nh-qw-Znu" firstAttribute="leading" secondItem="k9E-mU-xKL" secondAttribute="leading" constant="48" id="0DW-di-Ik4"/>
+                            <constraint firstItem="OuP-oK-KiZ" firstAttribute="leading" secondItem="k9E-mU-xKL" secondAttribute="leading" constant="137" id="9eb-Id-qYH"/>
+                            <constraint firstItem="uiM-xB-Oj8" firstAttribute="centerX" secondItem="OuP-oK-KiZ" secondAttribute="centerX" id="Cjv-J3-Lzm"/>
+                            <constraint firstItem="Gie-dY-EjX" firstAttribute="leading" secondItem="Mpr-vt-wst" secondAttribute="leading" id="KMP-hf-7Ed"/>
+                            <constraint firstItem="Gie-dY-EjX" firstAttribute="top" secondItem="9nh-qw-Znu" secondAttribute="bottom" constant="29" id="P89-Gc-jhT"/>
+                            <constraint firstItem="uiM-xB-Oj8" firstAttribute="top" secondItem="Gie-dY-EjX" secondAttribute="bottom" constant="8" symbolic="YES" id="Wtz-qF-JJB"/>
+                            <constraint firstItem="OuP-oK-KiZ" firstAttribute="top" secondItem="Mpr-vt-wst" secondAttribute="bottom" constant="8" symbolic="YES" id="XBb-mb-Lca"/>
+                            <constraint firstItem="9nh-qw-Znu" firstAttribute="top" secondItem="k9E-mU-xKL" secondAttribute="top" constant="44" id="ZAy-Qw-Wb0"/>
+                            <constraint firstItem="uiM-xB-Oj8" firstAttribute="leading" secondItem="k9E-mU-xKL" secondAttribute="leading" constant="119" id="bxs-6V-ZAg"/>
+                            <constraint firstItem="Gie-dY-EjX" firstAttribute="centerX" secondItem="gvo-Vi-HdE" secondAttribute="centerX" id="crh-ZA-WHR"/>
+                            <constraint firstItem="k9E-mU-xKL" firstAttribute="bottom" secondItem="OuP-oK-KiZ" secondAttribute="bottom" constant="69" id="jsc-RF-ySp"/>
+                            <constraint firstItem="Mpr-vt-wst" firstAttribute="top" secondItem="uiM-xB-Oj8" secondAttribute="bottom" constant="53" id="m9f-gg-cEB"/>
+                            <constraint firstItem="Gie-dY-EjX" firstAttribute="trailing" secondItem="Mpr-vt-wst" secondAttribute="trailing" id="skV-mM-fGW"/>
+                            <constraint firstItem="9nh-qw-Znu" firstAttribute="centerX" secondItem="Gie-dY-EjX" secondAttribute="centerX" id="zf8-gu-2aD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="k9E-mU-xKL"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="shH-ee-DqI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aQ2-JX-pt2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4285.6000000000004" y="-108.62068965517241"/>
+        </scene>
+        <!--Login Worker View Controller-->
+        <scene sceneID="xMW-Ox-2WD">
+            <objects>
+                <viewController id="tVi-ck-pch" customClass="LoginWorkerViewController" customModule="FarmProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2ru-m2-18w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cE2-3X-Lbx">
+                                <rect key="frame" x="37" y="391" width="300" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3q1-Nn-oAX">
+                                <rect key="frame" x="37" y="452" width="300" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="18"/>
+                                <state key="normal" title="เข้าสู่ระบบด้วย เบอร์มือถือ">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="LoginAction:" destination="tVi-ck-pch" eventType="touchUpInside" id="gSD-sc-aXD"/>
+                                    <segue destination="BGX-sN-5fE" kind="show" id="y70-7c-MyG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="oDw-Fg-PIX"/>
+                    </view>
+                    <connections>
+                        <outlet property="LoginBT" destination="3q1-Nn-oAX" id="PIf-Oa-I0h"/>
+                        <outlet property="PhoneIP" destination="cE2-3X-Lbx" id="A0k-Z1-hKT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jC7-sE-Ppj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3135" y="431"/>
+        </scene>
+        <!--Map Test View Controller-->
+        <scene sceneID="NR9-zA-VHS">
+            <objects>
+                <viewController id="BGX-sN-5fE" customClass="MapTestViewController" customModule="FarmProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="824-l9-fgf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MZG-kj-kNg">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MZG-kj-kNg" firstAttribute="top" secondItem="Ibc-1N-Qdw" secondAttribute="top" id="Ico-bo-1eS"/>
+                            <constraint firstItem="Ibc-1N-Qdw" firstAttribute="bottom" secondItem="MZG-kj-kNg" secondAttribute="bottom" id="Jwu-o4-OMU"/>
+                            <constraint firstItem="MZG-kj-kNg" firstAttribute="leading" secondItem="Ibc-1N-Qdw" secondAttribute="leading" id="Sat-gc-FMi"/>
+                            <constraint firstItem="Ibc-1N-Qdw" firstAttribute="trailing" secondItem="MZG-kj-kNg" secondAttribute="trailing" id="TMF-6H-gyk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ibc-1N-Qdw"/>
+                    </view>
+                    <connections>
+                        <outlet property="myMapKit" destination="MZG-kj-kNg" id="aKw-2c-dKf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="au9-3x-Xyp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1199" y="902"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yME-7Q-M2b">
+            <objects>
+                <navigationController id="Iez-41-Emt" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MZX-bh-BZx">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="C2c-H7-o0a" kind="relationship" relationship="rootViewController" id="f79-OG-QsQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="grk-ve-m0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5041" y="-250"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="kGE-iz-FGJ">
+            <objects>
+                <viewController id="1Bj-tE-DvK" customClass="LoginViewController" customModule="FarmProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Ai-yE-AsI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUF-29-QKa">
+                                <rect key="frame" x="134" y="608" width="500" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.76862745099999996" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="25"/>
+                                <state key="normal" title="เข้าสู่ระบบด้วย บัญชีผู้ใช้">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="LoginUsernameAction:" destination="1Bj-tE-DvK" eventType="touchUpInside" id="l9g-hH-gUD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEq-Wt-y02">
+                                <rect key="frame" x="370" y="555" width="29" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                <color key="textColor" red="0.52549019607843139" green="0.55686274509803924" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="leN-rT-VxB">
+                                <rect key="frame" x="134" y="472" width="500" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="25"/>
+                                <state key="normal" title="เข้าสู่ระบบด้วย Facebook">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="LoginFBAction:" destination="1Bj-tE-DvK" eventType="touchUpInside" id="hPc-7c-V25"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconiFarm" translatesAutoresizingMaskIntoConstraints="NO" id="O8b-6H-hFT">
+                                <rect key="frame" x="259" y="187" width="250" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="คุณยังไม่เป็นสมาชิกใช่หรือไม่?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sL3-aj-cUW">
+                                <rect key="frame" x="198" y="703" width="248" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                <color key="textColor" red="0.52549019610000003" green="0.5568627451" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BwH-tE-jam">
+                                <rect key="frame" x="464" y="697" width="106" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                <state key="normal" title="สมัครสมาชิก">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="RegisterAction:" destination="1Bj-tE-DvK" eventType="touchUpInside" id="dEn-Vw-Qnw"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="E2J-L2-wAk">
+                                <rect key="frame" x="366" y="427" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bf4-JQ-AGO"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TUc-6j-n6M"/>
+                    <connections>
+                        <outlet property="ActivityLoding" destination="E2J-L2-wAk" id="a2N-lA-uam"/>
+                        <outlet property="BTLoginFacebook" destination="leN-rT-VxB" id="Oap-Se-iCM"/>
+                        <outlet property="BTLoginUsername" destination="UUF-29-QKa" id="qZ3-op-wWC"/>
+                        <outlet property="LogoImage" destination="O8b-6H-hFT" id="BWp-Rl-ja4"/>
+                        <segue destination="UbG-c1-Cd7" kind="presentation" identifier="goLogin" modalTransitionStyle="flipHorizontal" id="RYB-UI-uUa"/>
+                        <segue destination="3uO-mV-uv8" kind="presentation" identifier="goRegister" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="a2c-rl-4Ja"/>
+                        <segue destination="icg-G6-wW4" kind="presentation" identifier="goAlertLogin" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="7GY-3u-bpV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l9k-RF-14l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2850" y="-896"/>
+        </scene>
+        <!--Register View Controller-->
+        <scene sceneID="je1-E2-CzQ">
+            <objects>
+                <viewController id="3uO-mV-uv8" customClass="RegisterViewController" customModule="FarmProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JeC-Q8-5cF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ApT-UX-zof">
+                                <rect key="frame" x="124" y="235" width="520" height="555"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gom-EX-NVU">
+                                        <rect key="frame" x="482" y="8" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="cancel"/>
+                                        <connections>
+                                            <action selector="CloseAction:" destination="3uO-mV-uv8" eventType="touchUpInside" id="1UB-rW-gL8"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ชื่อบัญชีผู้ใช้" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTB-Q6-Stn">
+                                        <rect key="frame" x="52" y="111" width="90" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="รหัสผ่าน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tR2-hm-O1b">
+                                        <rect key="frame" x="52" y="164" width="62" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="26" translatesAutoresizingMaskIntoConstraints="NO" id="OTB-vF-CXJ">
+                                        <rect key="frame" x="168" y="106" width="300" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" textContentType="username"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="26" translatesAutoresizingMaskIntoConstraints="NO" id="nhi-5j-DSl">
+                                        <rect key="frame" x="168" y="159" width="300" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ยืนยันรหัสผ่าน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nfe-Zg-a8e">
+                                        <rect key="frame" x="52" y="219" width="108" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="26" translatesAutoresizingMaskIntoConstraints="NO" id="n28-Qz-6v9">
+                                        <rect key="frame" x="168" y="214" width="300" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="สมัครสมาชิก" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOU-tg-XEa">
+                                        <rect key="frame" x="160" y="8" width="200" height="57"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Bold" family="Prompt" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ชื่อ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8k-F3-bZt">
+                                        <rect key="frame" x="52" y="271" width="22" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="26" translatesAutoresizingMaskIntoConstraints="NO" id="jPS-vl-1iU">
+                                        <rect key="frame" x="168" y="266" width="300" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="นามสกุล" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09G-8b-5kb">
+                                        <rect key="frame" x="52" y="327" width="64" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="26" translatesAutoresizingMaskIntoConstraints="NO" id="Jd6-fg-TLi">
+                                        <rect key="frame" x="168" y="322" width="300" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="อีเมล์" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvE-pZ-4gL">
+                                        <rect key="frame" x="52" y="384" width="39" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="26" translatesAutoresizingMaskIntoConstraints="NO" id="57Q-TL-qiF">
+                                        <rect key="frame" x="168" y="379" width="300" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hj3-Yn-JRc">
+                                        <rect key="frame" x="48" y="465" width="425" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.99607843139999996" green="0.76862745099999996" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="22"/>
+                                        <state key="normal" title="สมัครสมาชิก">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="RegisterAction:" destination="3uO-mV-uv8" eventType="touchUpInside" id="lLC-Ac-tJ1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="AXK-rA-OQw"/>
+                    </view>
+                    <connections>
+                        <outlet property="CloseBT" destination="gom-EX-NVU" id="Bgk-gq-bMs"/>
+                        <outlet property="Email" destination="57Q-TL-qiF" id="Ktq-hQ-uON"/>
+                        <outlet property="Fname" destination="jPS-vl-1iU" id="cwI-DI-wRt"/>
+                        <outlet property="Lname" destination="Jd6-fg-TLi" id="FaY-vW-axW"/>
+                        <outlet property="Password" destination="nhi-5j-DSl" id="r6s-1R-nL4"/>
+                        <outlet property="RePassword" destination="n28-Qz-6v9" id="MCS-1M-CHO"/>
+                        <outlet property="RegisterBT" destination="hj3-Yn-JRc" id="2q5-je-kDG"/>
+                        <outlet property="Username" destination="OTB-vF-CXJ" id="zHd-El-1Ak"/>
+                        <outlet property="ViewRegister" destination="ApT-UX-zof" id="q7x-m1-NDw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Myw-Zi-YRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2850" y="-1647.0703125"/>
+        </scene>
+        <!--Forget View Controller-->
+        <scene sceneID="yRi-k1-U8L">
+            <objects>
+                <viewController id="YDy-cX-s9g" customClass="ForgetViewController" customModule="FarmProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jLk-Ds-gTr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGk-k0-vO9">
+                                <rect key="frame" x="184" y="468" width="425" height="46"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.76862745099999996" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="425" id="HF9-Ds-dDr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="22"/>
+                                <state key="normal" title="เลือกขนาดของรถเข็น">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="ActionShow:" destination="YDy-cX-s9g" eventType="touchUpInside" id="E9D-pz-ldM"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FGT-WM-LzU">
+                                <rect key="frame" x="184" y="514" width="425" height="300"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.76862745099999996" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="VaS-aE-ROC"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="0hj-yG-X4j" customClass="DropCell" customModule="FarmProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="425" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0hj-yG-X4j" id="mRw-VX-odL">
+                                            <rect key="frame" x="0.0" y="0.0" width="425" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JcX-vt-aE8">
+                                                    <rect key="frame" x="15" y="0.0" width="46" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SM-br-OT2">
+                                                    <rect key="frame" x="79" y="11" width="123" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oe5-B4-tsd">
+                                                    <rect key="frame" x="287" y="11" width="123" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.99607843139999996" green="0.76862745099999996" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="FName" destination="9SM-br-OT2" id="icq-Bo-5P7"/>
+                                            <outlet property="ImgName" destination="JcX-vt-aE8" id="fOC-kV-IsD"/>
+                                            <outlet property="LastName" destination="oe5-B4-tsd" id="6gw-g4-mxU"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UGk-k0-vO9" firstAttribute="trailing" secondItem="FGT-WM-LzU" secondAttribute="trailing" id="7BM-JN-2o1"/>
+                            <constraint firstItem="FGT-WM-LzU" firstAttribute="centerX" secondItem="UGk-k0-vO9" secondAttribute="centerX" id="9dk-4F-7dm"/>
+                            <constraint firstItem="UGk-k0-vO9" firstAttribute="leading" secondItem="FGT-WM-LzU" secondAttribute="leading" id="FAO-sH-c0J"/>
+                            <constraint firstItem="UGk-k0-vO9" firstAttribute="top" secondItem="gp0-ad-fMA" secondAttribute="top" constant="424" id="HpZ-vT-6Sd"/>
+                            <constraint firstItem="FGT-WM-LzU" firstAttribute="top" secondItem="UGk-k0-vO9" secondAttribute="bottom" id="LiP-Zp-G89"/>
+                            <constraint firstItem="FGT-WM-LzU" firstAttribute="width" secondItem="UGk-k0-vO9" secondAttribute="width" id="LnO-Fg-VAK"/>
+                            <constraint firstItem="UGk-k0-vO9" firstAttribute="leading" secondItem="gp0-ad-fMA" secondAttribute="leading" constant="184" id="hal-rt-gtY"/>
+                            <constraint firstItem="FGT-WM-LzU" firstAttribute="top" secondItem="UGk-k0-vO9" secondAttribute="bottom" id="r22-xM-IuN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gp0-ad-fMA"/>
+                    </view>
+                    <connections>
+                        <outlet property="BTChoose" destination="UGk-k0-vO9" id="WAA-p1-g55"/>
+                        <outlet property="DropView" destination="VaS-aE-ROC" id="lc7-Xu-oaw"/>
+                        <outlet property="TableView" destination="FGT-WM-LzU" id="wEC-T9-pKQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vGI-uB-J3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1641.40625" y="-2248.2421875"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="hAp-0z-WKA">
             <objects>
                 <navigationController id="UbG-c1-Cd7" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wV6-aq-4dm">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="HZF-RN-uW5" kind="relationship" relationship="rootViewController" id="KdM-Rk-8rc"/>
@@ -24,122 +629,666 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UpA-eH-Umo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1974" y="-74"/>
+            <point key="canvasLocation" x="-2502" y="-109"/>
         </scene>
-        <!--Account-->
+        <!--บัญชีผู้ใช้-->
         <scene sceneID="xgY-IP-fA6">
             <objects>
-                <viewController id="pgN-pF-bH4" sceneMemberID="viewController">
+                <viewController id="pgN-pF-bH4" customClass="AccountViewController" customModule="FarmProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Dv-Ql-nzo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oxW-4V-vfZ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oxW-4V-vfZ">
+                                <rect key="frame" x="0.0" y="230" width="768" height="744"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Qdd-45-14X" customClass="AccountCell" customModule="FarmProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="Qdd-45-14X" customClass="AccountCell" customModule="FarmProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="768" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qdd-45-14X" id="9IK-Ca-9CK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="79.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIe-5I-hzG">
+                                                    <rect key="frame" x="164" y="11" width="335" height="58"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="exit" translatesAutoresizingMaskIntoConstraints="NO" id="8tO-3f-Y0Q">
+                                                    <rect key="frame" x="76" y="11" width="59" height="58"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ImageCell" destination="8tO-3f-Y0Q" id="qRo-ID-BpD"/>
+                                            <outlet property="NameLable" destination="eIe-5I-hzG" id="cab-ul-JP7"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="alW-rR-sg9">
+                                <rect key="frame" x="20" y="87" width="125" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nontawat Kanboon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ab-Ud-N8K">
+                                <rect key="frame" x="153" y="120" width="595" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="37"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="AE5-F7-MrV"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="บัญชีผู้ใช้" id="mrY-GK-FG0"/>
+                    <connections>
+                        <outlet property="NameUser" destination="7ab-Ud-N8K" id="FI2-Ge-nRC"/>
+                        <outlet property="PicUser" destination="alW-rR-sg9" id="a44-D8-Ad3"/>
+                        <outlet property="TableView" destination="oxW-4V-vfZ" id="YT4-U3-aks"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xAj-7c-H8X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-34.375" y="1471.875"/>
+        </scene>
+        <!--Task-->
+        <scene sceneID="QK2-0J-2Dw">
+            <objects>
+                <viewController id="WRe-rv-R7T" customClass="ManagerViewController" customModule="FarmProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vfc-Kr-tOr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="frZ-Hk-Ucr">
+                                <rect key="frame" x="0.0" y="64" width="768" height="910"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="70" id="8xW-Ej-BDJ" customClass="ManagerCell" customModule="FarmProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="768" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8xW-Ej-BDJ" id="ubt-dj-zW5">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="69.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9z-A4-h86">
+                                                    <rect key="frame" x="23" y="16" width="78" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <color key="textColor" red="0.45882352941176469" green="0.47058823529411764" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="สถานที่" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZ5-uz-Bkb">
+                                                    <rect key="frame" x="109" y="16" width="380" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <color key="textColor" red="0.45882352941176469" green="0.47058823529411764" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="เวลาที่เหลือ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gS-XL-5l4">
+                                                    <rect key="frame" x="513" y="16" width="140" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <color key="textColor" red="0.45882352941176469" green="0.47058823529411764" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d65-Xm-uQS">
+                                                    <rect key="frame" x="706" y="19" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="copy"/>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="AreaLable" destination="SZ5-uz-Bkb" id="72V-yL-2pR"/>
+                                            <outlet property="BTdetail" destination="d65-Xm-uQS" id="rBP-51-OtU"/>
+                                            <outlet property="NoLabel" destination="h9z-A4-h86" id="1Uk-fX-5rw"/>
+                                            <outlet property="TimeOutLable" destination="7gS-XL-5l4" id="EJ9-Nc-PZS"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="AE5-F7-MrV"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Account" image="menu" id="mrY-GK-FG0"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xAj-7c-H8X" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-34.399999999999999" y="761.46926536731644"/>
-        </scene>
-        <!--Control-->
-        <scene sceneID="QK2-0J-2Dw">
-            <objects>
-                <viewController id="WRe-rv-R7T" customClass="ManagerViewController" customModule="FarmProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vfc-Kr-tOr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="24b-Gg-fey">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ijw-4v-ENm">
-                                    <size key="itemSize" width="133" height="123"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Yo9-T3-VIs" customClass="ManagerCell" customModule="FarmProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                        <size key="customSize" width="125" height="125"/>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="y9X-EH-ast"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Control" image="home" id="D27-TG-fuD"/>
+                    <tabBarItem key="tabBarItem" title="Task" image="documents" id="D27-TG-fuD"/>
+                    <connections>
+                        <outlet property="tableView" destination="frZ-Hk-Ucr" id="uTQ-nN-55e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZe-33-9Ni" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-34.399999999999999" y="74.212893553223395"/>
+            <point key="canvasLocation" x="-35.15625" y="73.828125"/>
+        </scene>
+        <!--คนงาน-->
+        <scene sceneID="aBr-cI-m8C">
+            <objects>
+                <viewController id="WoS-v2-c1X" customClass="WorkerViewController" customModule="FarmProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vfC-hn-szr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="SoD-Sd-923"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="คนงาน" id="ZKa-GW-9bu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pKs-35-VON" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-25" y="771"/>
         </scene>
         <!--I Farm Manager-->
         <scene sceneID="Jti-sr-dTY">
             <objects>
-                <tabBarController id="HZF-RN-uW5" sceneMemberID="viewController">
+                <tabBarController id="HZF-RN-uW5" customClass="TabbarController" customModule="FarmProject" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="I Farm Manager" id="3Lf-45-Uxb"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OGc-PH-ox1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="5om-3x-aHQ"/>
-                        <segue destination="WRe-rv-R7T" kind="relationship" relationship="viewControllers" id="hWe-Uq-ba8"/>
-                        <segue destination="pgN-pF-bH4" kind="relationship" relationship="viewControllers" id="U3H-gC-x5D"/>
+                        <segue destination="oob-CF-ogQ" kind="relationship" relationship="viewControllers" id="Few-rP-7hX"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="wlR-SY-vg5"/>
+                        <segue destination="WoS-v2-c1X" kind="relationship" relationship="viewControllers" id="q7e-fe-EJj"/>
+                        <segue destination="pgN-pF-bH4" kind="relationship" relationship="viewControllers" id="u8O-om-6RJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EMs-6R-rCL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1110" y="-74"/>
+            <point key="canvasLocation" x="-1434" y="-109"/>
         </scene>
-        <!--Overviwe-->
+        <!--Add Area View Controller-->
+        <scene sceneID="LNk-nZ-D67">
+            <objects>
+                <viewController id="qqX-bR-7cf" customClass="AddAreaViewController" customModule="FarmProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NGc-ye-Wt4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GqR-JI-5z3">
+                                <rect key="frame" x="124" y="295" width="520" height="445"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yc-Ad-V4f">
+                                        <rect key="frame" x="482" y="8" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="cancel"/>
+                                        <connections>
+                                            <action selector="CloseArea:" destination="qqX-bR-7cf" eventType="touchUpInside" id="CKN-3Y-Nmh"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="26" translatesAutoresizingMaskIntoConstraints="NO" id="Yh8-M9-F88">
+                                        <rect key="frame" x="151" y="95" width="325" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="26" translatesAutoresizingMaskIntoConstraints="NO" id="Dx0-GI-x0A">
+                                        <rect key="frame" x="146" y="229" width="325" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ชื่อสถานที่" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SlS-ae-33L">
+                                        <rect key="frame" x="51" y="97" width="83" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="พืชที่ปลูก" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0L0-n9-xko">
+                                        <rect key="frame" x="51" y="157" width="78" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="มูลค่าที่ดิน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WwT-Bu-9iv">
+                                        <rect key="frame" x="51" y="231" width="85" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="เพิ่มพื้นที่" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xp0-V9-NHV">
+                                        <rect key="frame" x="160" y="8" width="200" height="57"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Bold" family="Prompt" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBw-mq-DSS">
+                                        <rect key="frame" x="51" y="372" width="425" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.99607843139999996" green="0.76862745099999996" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="22"/>
+                                        <state key="normal" title="เพิ่มพื้นที่">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="AddArea:" destination="qqX-bR-7cf" eventType="touchUpInside" id="rZ1-SF-sYX"/>
+                                        </connections>
+                                    </button>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="50O-cY-CBc">
+                                        <rect key="frame" x="149" y="283" width="325" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="571511040.17534399">
+                                            <!--2019-02-10 17:04:00 +0000-->
+                                        </date>
+                                        <date key="minimumDate" timeIntervalSinceReferenceDate="504961200">
+                                            <!--2017-01-01 11:00:00 +0000-->
+                                        </date>
+                                        <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
+                                            <!--2037-12-31 11:00:00 +0000-->
+                                        </date>
+                                        <locale key="locale" localeIdentifier="th_TH"/>
+                                        <connections>
+                                            <action selector="dateChange:" destination="qqX-bR-7cf" eventType="valueChanged" id="wdI-cu-c9r"/>
+                                        </connections>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3N-0y-N2a">
+                                        <rect key="frame" x="160" y="145" width="70" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="cornIcon"/>
+                                        <connections>
+                                            <action selector="ic1Action:" destination="qqX-bR-7cf" eventType="touchUpInside" id="u8H-8B-4KG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHY-xX-yjr">
+                                        <rect key="frame" x="238" y="145" width="70" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="ic1"/>
+                                        <connections>
+                                            <action selector="ic2Action:" destination="qqX-bR-7cf" eventType="touchUpInside" id="V9j-P9-fX7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9D-WJ-ijW">
+                                        <rect key="frame" x="316" y="145" width="70" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="ic2"/>
+                                        <connections>
+                                            <action selector="ic3Action:" destination="qqX-bR-7cf" eventType="touchUpInside" id="LDh-0f-gDd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0m2-AW-syP">
+                                        <rect key="frame" x="394" y="145" width="70" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="ic3"/>
+                                        <connections>
+                                            <action selector="ic4Action:" destination="qqX-bR-7cf" eventType="touchUpInside" id="huK-wJ-SE6"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="วันที่เริ่ม" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQQ-oD-mla">
+                                        <rect key="frame" x="51" y="293" width="66" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="jGT-7v-oZd"/>
+                    </view>
+                    <connections>
+                        <outlet property="BTAddArea" destination="kBw-mq-DSS" id="gVn-UF-NEr"/>
+                        <outlet property="CloseBT" destination="0yc-Ad-V4f" id="bol-wa-s6l"/>
+                        <outlet property="NameArea" destination="Yh8-M9-F88" id="s1I-mw-HwO"/>
+                        <outlet property="PickerDate" destination="50O-cY-CBc" id="OR0-W3-4q1"/>
+                        <outlet property="ValueMoney" destination="Dx0-GI-x0A" id="S86-DY-J3i"/>
+                        <outlet property="ViewArea" destination="GqR-JI-5z3" id="vxI-6k-LYe"/>
+                        <outlet property="ic1" destination="j3N-0y-N2a" id="yur-c8-dse"/>
+                        <outlet property="ic2" destination="VHY-xX-yjr" id="sGa-Uh-AuW"/>
+                        <outlet property="ic3" destination="C9D-WJ-ijW" id="dHp-nj-t7l"/>
+                        <outlet property="ic4" destination="0m2-AW-syP" id="lzj-be-4bn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dTf-m9-OTW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="63.28125" y="-1441.40625"/>
+        </scene>
+        <!--หน้าแรก-->
+        <scene sceneID="bEs-hH-R5d">
+            <objects>
+                <viewController id="oob-CF-ogQ" customClass="HomeViewController" customModule="FarmProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mWP-BO-Pmu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1NQ-Q6-6DM">
+                                <rect key="frame" x="0.0" y="596" width="375" height="133"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ASK-g0-c0T">
+                                <rect key="frame" x="0.0" y="88" width="375" height="512"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ecd-Ta-sKF">
+                                    <size key="itemSize" width="120" height="120"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="r5V-9S-IjK" customClass="HomeCell" customModule="FarmProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lj1-I4-pXL">
+                                                    <rect key="frame" x="28" y="20" width="65" height="65"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZQ-PB-Oxh">
+                                                    <rect key="frame" x="39" y="89" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="lj1-I4-pXL" firstAttribute="top" secondItem="r5V-9S-IjK" secondAttribute="topMargin" constant="-24" id="2wq-vw-y1d"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="PZQ-PB-Oxh" secondAttribute="bottom" constant="-24" id="7dB-39-m3U"/>
+                                            <constraint firstItem="lj1-I4-pXL" firstAttribute="centerX" secondItem="PZQ-PB-Oxh" secondAttribute="centerX" id="C4S-TR-nDI"/>
+                                            <constraint firstItem="lj1-I4-pXL" firstAttribute="centerX" secondItem="r5V-9S-IjK" secondAttribute="centerX" id="Ha3-uA-639"/>
+                                            <constraint firstItem="PZQ-PB-Oxh" firstAttribute="top" secondItem="lj1-I4-pXL" secondAttribute="bottom" constant="4" id="PPI-KR-l5T"/>
+                                            <constraint firstItem="lj1-I4-pXL" firstAttribute="leading" secondItem="r5V-9S-IjK" secondAttribute="leadingMargin" constant="12" id="r2a-q1-oai"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="ImageCell" destination="lj1-I4-pXL" id="dTq-b5-NbW"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ASK-g0-c0T" firstAttribute="leading" secondItem="mWP-BO-Pmu" secondAttribute="leading" id="DgX-7R-DCj"/>
+                            <constraint firstItem="1NQ-Q6-6DM" firstAttribute="top" secondItem="MO9-pq-nYS" secondAttribute="top" constant="508" id="Js8-0E-oIE"/>
+                            <constraint firstAttribute="trailing" secondItem="ASK-g0-c0T" secondAttribute="trailing" id="PrJ-0p-LXF"/>
+                            <constraint firstItem="ASK-g0-c0T" firstAttribute="leading" secondItem="1NQ-Q6-6DM" secondAttribute="leading" id="frQ-EO-cPr"/>
+                            <constraint firstItem="1NQ-Q6-6DM" firstAttribute="bottom" secondItem="MO9-pq-nYS" secondAttribute="bottom" id="nly-MJ-wUc"/>
+                            <constraint firstItem="ASK-g0-c0T" firstAttribute="trailing" secondItem="1NQ-Q6-6DM" secondAttribute="trailing" id="nsI-C9-2GA"/>
+                            <constraint firstItem="ASK-g0-c0T" firstAttribute="top" secondItem="MO9-pq-nYS" secondAttribute="top" id="rfI-q5-wtt"/>
+                            <constraint firstItem="MO9-pq-nYS" firstAttribute="bottom" secondItem="ASK-g0-c0T" secondAttribute="bottom" constant="129" id="wbr-2P-wFX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MO9-pq-nYS"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="หน้าแรก" id="aas-pe-sdS">
+                        <inset key="imageInsets" minX="0.0" minY="-6" maxX="0.0" maxY="-3"/>
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="-10" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZEX-mP-2AA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-738.39999999999998" y="-873.39901477832518"/>
+        </scene>
+        <!--แจ้งเตือน-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FarmProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="3g4-pe-QHF">
+                                <rect key="frame" x="366" y="494" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Overviwe" image="globe" id="FQ1-Nx-J5C"/>
+                    <tabBarItem key="tabBarItem" title="แจ้งเตือน" id="FQ1-Nx-J5C"/>
                     <navigationItem key="navigationItem" id="zgS-6p-gHS"/>
+                    <connections>
+                        <outlet property="AcLoding" destination="3g4-pe-QHF" id="Z2E-Al-RUL"/>
+                        <segue destination="qqX-bR-7cf" kind="presentation" identifier="goAddArea" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="5Q1-bA-LQ5"/>
+                        <segue destination="AMY-fs-TrN" kind="presentation" identifier="goArea" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="DhW-eV-PVM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-34" y="-595"/>
         </scene>
+        <!--Area View Controller-->
+        <scene sceneID="U7A-BT-BZo">
+            <objects>
+                <viewController id="AMY-fs-TrN" customClass="AreaViewController" customModule="FarmProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eU0-OW-khi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aCd-5w-k9b">
+                                <rect key="frame" x="124" y="131" width="520" height="762"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ja1-X6-PNw">
+                                        <rect key="frame" x="482" y="8" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="cancel"/>
+                                        <connections>
+                                            <action selector="CloseAction:" destination="AMY-fs-TrN" eventType="touchUpInside" id="Bnt-su-xL3"/>
+                                            <action selector="CloseArea:" destination="qqX-bR-7cf" eventType="touchUpInside" id="dqp-a7-0vG"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ชื่อสถานที่" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6LK-0G-Zef">
+                                        <rect key="frame" x="63" y="73" width="83" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ชื่อสถานที่" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7T-W5-iyE">
+                                        <rect key="frame" x="175" y="73" width="280" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="พืชที่ปลูก" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0X-gg-dlu">
+                                        <rect key="frame" x="63" y="126" width="78" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="มูลค่าที่ดิน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcP-Cl-7y1">
+                                        <rect key="frame" x="63" y="184" width="85" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ขนาดพื้นที่" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r04-oO-FUx">
+                                        <rect key="frame" x="63" y="245" width="87" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ข้อมูลพื้นที่" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzh-he-fwd">
+                                        <rect key="frame" x="160" y="8" width="200" height="57"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Bold" family="Prompt" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1 วัน" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meA-qp-RKy">
+                                        <rect key="frame" x="8" y="5" width="80" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.99607843139999996" green="0.76862745099999996" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Bold" family="Prompt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="วันที่เริ่มปลูก" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fz9-Jm-CZX">
+                                        <rect key="frame" x="63" y="305" width="104" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ชื่อสถานที่" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVO-Ob-EJ2">
+                                        <rect key="frame" x="175" y="126" width="280" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ชื่อสถานที่" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSS-UP-ps4">
+                                        <rect key="frame" x="175" y="184" width="280" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ชื่อสถานที่" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45j-QJ-D09">
+                                        <rect key="frame" x="175" y="245" width="280" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ชื่อสถานที่" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6G8-Xa-qyd">
+                                        <rect key="frame" x="178" y="305" width="280" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJp-Oo-lUD">
+                                        <rect key="frame" x="51" y="698" width="200" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.090196078430000007" green="0.67450980390000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="22"/>
+                                        <state key="normal" title="แก้ไขข้อมูล">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skt-d2-QPS">
+                                        <rect key="frame" x="269" y="698" width="200" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="22"/>
+                                        <state key="normal" title="ลบพื้นที่">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="AddArea:" destination="qqX-bR-7cf" eventType="touchUpInside" id="xmO-J9-ZtI"/>
+                                            <action selector="DeleteAreaAction:" destination="AMY-fs-TrN" eventType="touchUpInside" id="YuO-Xb-0ky"/>
+                                            <action selector="EditAreaAction:" destination="AMY-fs-TrN" eventType="touchUpInside" id="W3Q-00-VlL"/>
+                                        </connections>
+                                    </button>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nne-Zm-yHl">
+                                        <rect key="frame" x="25" y="403" width="470" height="277"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="4EJ-Oa-9fc" customClass="TaskCell" customModule="FarmProject" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="470" height="60"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4EJ-Oa-9fc" id="Xhv-Rs-Pei">
+                                                    <rect key="frame" x="0.0" y="0.0" width="470" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ใส่ปุ๋ย PM 2.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzS-AS-J0F">
+                                                            <rect key="frame" x="43" y="19" width="177" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12/02/2562 09.00 น" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLG-ur-Scb">
+                                                            <rect key="frame" x="228" y="19" width="169" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kcm-aq-i1B">
+                                                            <rect key="frame" x="417" y="15" width="30" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" image="document"/>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMt-v8-Ptq">
+                                                            <rect key="frame" x="15" y="19" width="20" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="BTDetail" destination="Kcm-aq-i1B" id="Dit-ax-N2g"/>
+                                                    <outlet property="TDate" destination="NLG-ur-Scb" id="tIq-uw-7ga"/>
+                                                    <outlet property="TName" destination="UzS-AS-J0F" id="jZD-OT-z9D"/>
+                                                    <outlet property="TNo" destination="dMt-v8-Ptq" id="wad-pl-Lgx"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ตารางงาน" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2b-Eb-4Yf">
+                                        <rect key="frame" x="25" y="360" width="142" height="43"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.99607843139999996" green="0.76862745099999996" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Prompt-Bold" family="Prompt" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="XGM-Gf-2cs"/>
+                    </view>
+                    <connections>
+                        <outlet property="AreaDateStart" destination="6G8-Xa-qyd" id="e5X-q2-f2i"/>
+                        <outlet property="AreaDistanc" destination="45j-QJ-D09" id="Nh9-D0-qbr"/>
+                        <outlet property="AreaName" destination="H7T-W5-iyE" id="ben-iy-nGl"/>
+                        <outlet property="AreaPrice" destination="RSS-UP-ps4" id="fur-Ne-g76"/>
+                        <outlet property="CloseBT" destination="ja1-X6-PNw" id="wFD-Eb-Nyu"/>
+                        <outlet property="DeleteAreaBT" destination="skt-d2-QPS" id="ZMK-xk-aWi"/>
+                        <outlet property="EditAreaBT" destination="bJp-Oo-lUD" id="G20-Al-QDs"/>
+                        <outlet property="StatusDay" destination="meA-qp-RKy" id="a7R-lx-5PW"/>
+                        <outlet property="TableView" destination="Nne-Zm-yHl" id="FQf-aH-k42"/>
+                        <outlet property="TypePlate" destination="cVO-Ob-EJ2" id="gQH-a3-QXH"/>
+                        <outlet property="ViewArea" destination="aCd-5w-k9b" id="z7F-Uh-06i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ncr-bf-yV1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="909.375" y="-896.48437499999989"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="globe" width="30" height="30"/>
-        <image name="home" width="30" height="30"/>
-        <image name="menu" width="30" height="30"/>
+        <image name="Farmermer" width="256" height="256"/>
+        <image name="Manager2" width="512" height="512"/>
+        <image name="cancel" width="30" height="30"/>
+        <image name="copy" width="30" height="30"/>
+        <image name="cornIcon" width="39" height="80"/>
+        <image name="document" width="30" height="30"/>
+        <image name="documents" width="30" height="30"/>
+        <image name="exit" width="30" height="30"/>
+        <image name="ic1" width="200" height="200"/>
+        <image name="ic2" width="104" height="104"/>
+        <image name="ic3" width="252" height="200"/>
+        <image name="iconiFarm" width="1024" height="1024"/>
     </resources>
 </document>

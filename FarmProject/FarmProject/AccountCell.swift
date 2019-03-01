@@ -10,6 +10,8 @@ import UIKit
 
 class AccountCell: UITableViewCell {
 
+    @IBOutlet weak var ImageCell: UIImageView!
+    @IBOutlet weak var NameLable: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

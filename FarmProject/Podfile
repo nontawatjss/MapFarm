@@ -8,5 +8,18 @@ target 'FarmProject' do
   # Pods for FarmProject
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'FBSDKLoginKit'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'Alamofire'
+  pod 'Kingfisher', '~> 5.0'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+  pod 'DropDown'
+  pod 'Firebase/Auth'
+  pod 'Kanna'
+  pod 'SwiftyJSON'
+  pod 'NVActivityIndicatorView'
+
 
 end

@@ -71,23 +71,27 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "ipad",
       "size" : "76x76",
+      "idiom" : "ipad",
+      "filename" : "51440686_375701183009620_4282414760156200960_n.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "76x76",
-      "scale" : "2x"
-    },
-    {
       "idiom" : "ipad",
-      "size" : "83.5x83.5",
+      "filename" : "51926006_2104118119654119_4543095588278763520_n.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "ios-marketing",
+      "size" : "83.5x83.5",
+      "idiom" : "ipad",
+      "filename" : "52350915_1661593567475521_383465851396816896_n.png",
+      "scale" : "2x"
+    },
+    {
       "size" : "1024x1024",
+      "idiom" : "ios-marketing",
+      "filename" : "52590202_1251397588343731_913229417155657728_n.png",
       "scale" : "1x"
     }
   ],
