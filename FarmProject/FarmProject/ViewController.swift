@@ -12,20 +12,7 @@ import Foundation
 import FBSDKLoginKit
 import FirebaseFirestore
 
-extension CGFloat {
-    static func random() -> CGFloat {
-        return CGFloat(arc4random()) / CGFloat(UInt32.max)
-    }
-}
 
-extension UIColor {
-    static func random() -> UIColor {
-        return UIColor(red:   .random(),
-                       green: .random(),
-                       blue:  .random(),
-                       alpha: 0.5)
-    }
-}
 
 
 
@@ -215,10 +202,7 @@ class ViewController: UIViewController , GMSMapViewDelegate{
     }
 
     
-//    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-//        print("\(marker.title)")
-//    }
-    
+
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
        
         print("\(marker.snippet!)")

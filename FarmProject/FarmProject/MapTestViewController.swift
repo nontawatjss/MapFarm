@@ -8,118 +8,256 @@
 
 import UIKit
 import MapKit
+import GoogleMaps
 
-class MapTestViewController: UIViewController, MKMapViewDelegate {
+class MapTestViewController: UIViewController, GMSMapViewDelegate{
 
-    @IBOutlet weak var myMapKit: MKMapView!
+    @IBOutlet weak var MapView: GMSMapView!
+    
+    @IBOutlet weak var AddAreaBT: UIButton!
+    
+    @IBOutlet weak var RefreshAreaBT: UIButton!
+    
+    @IBOutlet weak var CancelBT: UIButton!
     
     var lat = 15.237031
     var long = 104.843363
     var TY = 8
     
+    var ComoleteAdd = false
+    var MarkerCenterLat:Double!
+    var MarkerCenterLong:Double!
+    
+    var Polyline:GMSPolyline!
+    var Polygon:GMSPolygon!
+    var path:GMSMutablePath!
+    var positionMarker = [[String:Double]]()
+    var markerPoly:GMSMarker!
+    
+    var tapMap = false
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        MapView.delegate = self
 
-        // Do any additional setup after loading the view.
+        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 18.0)
         
-        myMapKit.delegate = self
-        myMapKit.mapType = .hybrid
-        
-        createPolygon()
-        
-        
-        self.myMapKit.removeAnnotations(self.myMapKit.annotations)
-        
-       createPolygon()
-    }
+        MapView.mapType = GMSMapViewType.satellite
+        MapView.camera = camera
     
-    func createPolygon() {
         
-        let pinLocation = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
         
-       let mapCamera = MKMapCamera(lookingAtCenter: pinLocation, fromDistance: 2000, pitch: 75, heading: 180)
+        let newImage = resizeImage(image: UIImage(named: "push-pin")!, targetSize: CGSize(width: 30, height: 30))
         
-        let pinLocation2 = CLLocationCoordinate2D(latitude: lat+0.02, longitude: long+0.02)
+        let markerView = UIImageView(image: newImage)
+    
+        markerView.tintColor = UIColor.red
         
-        myMapKit.setCamera(mapCamera, animated: true)
+        marker.iconView = markerView
         
-           addAnnotation(coordinate: pinLocation, title: "UBON", subtitle: "copyright", type: 0)
+        marker.map = MapView
+        
 
-            
-            addAnnotation(coordinate: pinLocation2, title: "UBONTOYOU", subtitle: "copyright", type: 0)
-            
-        addPolygon()
+        CustomView()
+
     }
     
     
-    func addPolygon() {
-        
-        var locations = [CLLocationCoordinate2D(latitude: 15.245558, longitude: 104.833312),
-                         CLLocationCoordinate2D(latitude: 15.243932, longitude: 104.834631),
-                         CLLocationCoordinate2D(latitude: 15.247555, longitude: 104.842214)]
-      
-        let polygon = MKPolygon(coordinates: locations, count: locations.count)
-        myMapKit.addOverlay(polygon)
-        
+    func CustomView() {
+        CancelBT.isHidden = true
+        RefreshAreaBT.isHidden = true
+
     }
     
-    
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+          print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
         
-        if overlay is MKPolygon {
-            let renderer = MKPolygonRenderer(polygon: overlay as! MKPolygon)
-            renderer.fillColor = UIColor.white.withAlphaComponent(0.5)
-            renderer.strokeColor = UIColor.orange
-            renderer.lineWidth = 1
-            return renderer
+        
+        if tapMap == true {
+        
+        mapView.clear()
+   
+        self.path.add(CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude))
+        positionMarker.append(["lat": Double(coordinate.latitude), "long": Double(coordinate.longitude)])
+        
+        Polyline = GMSPolyline(path: path)
+        Polyline.strokeColor = UIColor.red
+        Polyline.strokeWidth = 2.0
+        Polyline.map = MapView
+        
+        
+        Polygon = GMSPolygon(path: path)
+        Polygon.strokeColor = UIColor.red
+        Polygon.strokeWidth = 2.0
+        Polygon.fillColor = UIColor.white.withAlphaComponent(0.7)
+        Polygon.map = MapView
+        
+        
+        
+        var i = 0
+        MarkerCenterLat = 0.0
+        MarkerCenterLong = 0.0
+        while i < positionMarker.count {
+
+            markerPoly = GMSMarker()
+            
+            markerPoly.position = CLLocationCoordinate2D(latitude: positionMarker[i]["lat"]!, longitude: positionMarker[i]["long"]!)
+            
+            let newImage = resizeImage(image: UIImage(named: "placeholder-3")!, targetSize: CGSize(width: 30, height: 30))
+            let markerView = UIImageView(image: newImage)
+            
+            markerPoly.iconView = markerView
+            
+            markerPoly.map = MapView
+            
+            MarkerCenterLong = MarkerCenterLong + positionMarker[i]["long"]!
+            MarkerCenterLat = MarkerCenterLat + positionMarker[i]["lat"]!
+            
+            i = i + 1
+        }
+            
+            
+        }else{
+            
+            
         }
         
-        return MKOverlayRenderer()
-    }
-        
-    
-    
-    private func addAnnotation(coordinate coordinate: CLLocationCoordinate2D, title: String, subtitle: String, type:Int) {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        annotation.title = title
-        annotation.subtitle = subtitle
-        TY = type
-        myMapKit.addAnnotation(annotation)
     }
     
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         
-        if annotation is MKUserLocation {
-            return nil
+        print("OKKKK")
+       // appDelegate.selectID = marker.snippet!
+     //  performSegue(withIdentifier: "goArea", sender: self)
+        
+        UIGraphicsBeginImageContext(MapView.frame.size);
+        MapView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        var screenShot = UIGraphicsGetImageFromCurrentImageContext()
+        var imaView = UIImageView(image: resizeImage(image: screenShot!, targetSize: CGSize(width: 50.0, height: 50.0)))
+        MapView.addSubview(imaView)
+        UIGraphicsEndImageContext()
+        
+        return true
+        
+        
+    }
+
+
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.navigationItem.title? = "i Farm"
+        print("IN")
+    }
+    
+    
+    
+    @objc func AddnewArea() {
+        
+        print("test")
+        
+    }
+    
+
+    @IBAction func CancelAction(_ sender: Any) {
+        
+        AddAreaBT.setImage(UIImage(named: "add"), for: .normal)
+        ComoleteAdd = false
+        RefreshAreaBT.isHidden = true
+        CancelBT.isHidden = true
+        MapView.clear()
+
+        tapMap = false
+        
+    }
+    
+    @IBAction func REfreshAction(_ sender: Any) {
+        
+        MapView.clear()
+        path = GMSMutablePath()
+        
+        positionMarker.removeAll()
+        
+    }
+    
+    @IBAction func AddCompleteAction(_ sender: Any) {
+        
+        if ComoleteAdd == false {
+            CancelBT.isHidden = false
+            RefreshAreaBT.isHidden = false
+            AddAreaBT.setImage(UIImage(named: "checked-1"), for: .normal)
+            ComoleteAdd = true
+            print("Add")
+    
+            path = GMSMutablePath()
+           
+             tapMap = true
+            
+        }else{
+            AddAreaBT.setImage(UIImage(named: "add"), for: .normal)
+            ComoleteAdd = false
+            RefreshAreaBT.isHidden = true
+            CancelBT.isHidden = true
+            print("Else")
+            
+            
+            markerPoly = GMSMarker()
+            
+            markerPoly.position = CLLocationCoordinate2D(latitude: MarkerCenterLat/Double(positionMarker.count), longitude: MarkerCenterLong/Double(positionMarker.count))
+            
+            let newImage = resizeImage(image: UIImage(named: "cornIcon")!, targetSize: CGSize(width: 40, height: 80))
+            let markerView = UIImageView(image: newImage)
+            markerPoly.snippet = "Test"
+            
+            markerPoly.iconView = markerView
+            
+            
+            markerPoly.map = MapView
+            
+            
+            positionMarker.removeAll()
+            
+            
+            tapMap = false
+            
+            
+        }
+        
+        
+    }
+    
+    
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+        
+        let widthRatio  = targetSize.width  / size.width
+        let heightRatio = targetSize.height / size.height
+        
+        // Figure out what our orientation is, and use that to form the rectangle
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
         } else {
-            let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationView") ?? MKAnnotationView()
-            annotationView.image = UIImage(named: "file")
-            annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-            let btCustom = UIButton(type: .detailDisclosure)
-            btCustom.setImage(UIImage(named: "home"), for: .normal)
-            btCustom.tintColor = UIColor.red
-            annotationView.leftCalloutAccessoryView = btCustom
-            annotationView.canShowCallout = true
-            return annotationView
+            newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
         }
+        
+        // This is the rect that we've calculated out and this is what is actually used below
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+        
+        // Actually do the resizing to the rect using the ImageContext stuff
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
     }
     
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        
-        
-        guard let annotation = view.annotation, let title = annotation.title else { return }
-        
-        let alertController = UIAlertController(title: "Welcome to \(title)", message: "You've selected \(title)", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
-        
-        
-    }
-
     
-
-
+    
     
 }

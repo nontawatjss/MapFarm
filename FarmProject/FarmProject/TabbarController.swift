@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class TabbarController: UITabBarController {
 
     override func viewDidLoad() {
@@ -28,6 +30,10 @@ class TabbarController: UITabBarController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("ok")
+    }
+    
 
     func setTabBarItems(){
         
@@ -38,13 +44,13 @@ class TabbarController: UITabBarController {
         myTabBarItem1.imageInsets = UIEdgeInsets(top: -10, left: 0, bottom: -6, right: 0)
 
         let myTabBarItem2 = (self.tabBar.items?[1])! as UITabBarItem
-        myTabBarItem2.image = self.resizeImage(image: UIImage(named: "information-2")!, targetSize: CGSize(width: 27.0, height: 27.0))
-        myTabBarItem2.title = "แจ้งเตือน"
+        myTabBarItem2.image = self.resizeImage(image: UIImage(named: "map_marker")!, targetSize: CGSize(width: 27.0, height: 27.0))
+        myTabBarItem2.title = "I-Farm"
         myTabBarItem2.imageInsets = UIEdgeInsets(top: -10, left: 0, bottom: -6, right: 0)
         
         let myTabBarItem3 = (self.tabBar.items?[2])! as UITabBarItem
-        myTabBarItem3.image = self.resizeImage(image: UIImage(named: "geo_fence")!, targetSize: CGSize(width: 27.0, height: 27.0))
-        myTabBarItem3.title = "คนงาน"
+        myTabBarItem3.image = self.resizeImage(image: UIImage(named: "information-2")!, targetSize: CGSize(width: 27.0, height: 27.0))
+        myTabBarItem3.title = "แจ้งเตือน"
         myTabBarItem3.imageInsets = UIEdgeInsets(top: -10, left: 0, bottom: -6, right: 0)
         
         let myTabBarItem4 = (self.tabBar.items?[3])! as UITabBarItem
