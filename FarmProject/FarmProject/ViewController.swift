@@ -44,7 +44,7 @@ class ViewController: UIViewController , GMSMapViewDelegate{
         appDelegate.mapView.delegate =  self
     
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.reloadMap(notification:)), name: Notification.Name("reloadMap"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reloadMap(notification:)), name: Notification.Name("reloadMasdsp"), object: nil)
 
        
       

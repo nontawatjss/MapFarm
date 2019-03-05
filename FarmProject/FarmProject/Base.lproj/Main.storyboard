@@ -566,7 +566,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGk-k0-vO9">
-                                <rect key="frame" x="184" y="468" width="425" height="46"/>
+                                <rect key="frame" x="184" y="468" width="425" height="38"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.76862745099999996" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="425" id="HF9-Ds-dDr"/>
@@ -580,7 +580,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FGT-WM-LzU">
-                                <rect key="frame" x="184" y="514" width="425" height="300"/>
+                                <rect key="frame" x="184" y="506" width="425" height="300"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.76862745099999996" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="VaS-aE-ROC"/>
@@ -1171,6 +1171,7 @@
                         <outlet property="AreaDistance" destination="fhY-bC-JXX" id="mnW-RQ-nX3"/>
                         <outlet property="CollectionView" destination="YyL-aX-y1m" id="3Km-1h-RYF"/>
                         <outlet property="PriceAll" destination="FNH-2z-ITz" id="3si-zb-C1I"/>
+                        <segue destination="AMY-fs-TrN" kind="show" identifier="goArea" id="BWB-0P-F7B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOV-t2-mlL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1184,13 +1185,225 @@
                     <view key="view" contentMode="scaleToFill" id="eU0-OW-khi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4LX-P0-gs8">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Df-G8-J5e">
+                                        <rect key="frame" x="16" y="227" width="343" height="315"/>
+                                        <color key="backgroundColor" red="0.95686274510000002" green="0.96078431369999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="315" id="8ct-o6-OCF"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MRr-ZI-qS3">
+                                        <rect key="frame" x="16" y="549" width="343" height="133"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="133" id="Br8-t7-9rx"/>
+                                        </constraints>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="69" id="Uy0-HK-Ri7" customClass="TaskCell" customModule="FarmProject" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="343" height="69"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uy0-HK-Ri7" id="aXn-JW-THr">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="68.666666666666671"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="วันที่ 1-7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQY-j1-tR8">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="68.666666666666671"/>
+                                                            <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="100" id="RQk-5J-egK"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="24"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="เตรียมดินสำหรับปลูก" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwn-fy-676">
+                                                            <rect key="frame" x="108" y="23" width="149" height="26"/>
+                                                            <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wait" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irP-i1-6UA">
+                                                            <rect key="frame" x="268" y="24" width="75" height="25"/>
+                                                            <color key="backgroundColor" red="0.99607843139999996" green="0.76862745099999996" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="75" id="6vK-VP-yfp"/>
+                                                                <constraint firstAttribute="height" constant="25" id="PMQ-ka-kER"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="wwn-fy-676" firstAttribute="centerY" secondItem="irP-i1-6UA" secondAttribute="centerY" id="2px-u9-Ulz"/>
+                                                        <constraint firstAttribute="trailing" secondItem="irP-i1-6UA" secondAttribute="trailing" id="4PD-bv-GwT"/>
+                                                        <constraint firstItem="tQY-j1-tR8" firstAttribute="leading" secondItem="aXn-JW-THr" secondAttribute="leading" id="DFq-qz-ZXh"/>
+                                                        <constraint firstItem="wwn-fy-676" firstAttribute="bottom" secondItem="irP-i1-6UA" secondAttribute="bottom" id="DWk-nD-mHp"/>
+                                                        <constraint firstItem="tQY-j1-tR8" firstAttribute="top" secondItem="aXn-JW-THr" secondAttribute="top" id="aIa-4U-mji"/>
+                                                        <constraint firstItem="tQY-j1-tR8" firstAttribute="centerY" secondItem="aXn-JW-THr" secondAttribute="centerY" id="eHC-ka-IEF"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="wwn-fy-676" secondAttribute="bottom" constant="9" id="g2A-x3-buL"/>
+                                                        <constraint firstItem="wwn-fy-676" firstAttribute="leading" secondItem="tQY-j1-tR8" secondAttribute="trailing" constant="8" symbolic="YES" id="jvD-iX-A2g"/>
+                                                        <constraint firstItem="irP-i1-6UA" firstAttribute="top" secondItem="aXn-JW-THr" secondAttribute="topMargin" constant="13" id="uKK-6E-USv"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="Daytask" destination="tQY-j1-tR8" id="Eog-ds-5CX"/>
+                                                    <outlet property="Status" destination="irP-i1-6UA" id="p9W-Dc-4gs"/>
+                                                    <outlet property="TitleName" destination="wwn-fy-676" id="oeq-ou-5qh"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tcg-6e-Ufb">
+                                        <rect key="frame" x="16" y="8" width="343" height="211"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="พยากรณ์อากาศวันนี้" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHD-io-kpc">
+                                                <rect key="frame" x="8" y="8" width="146" height="26"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="17"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5T6-4O-wIJ">
+                                                <rect key="frame" x="7" y="39" width="130" height="130"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pv2-ys-EOF">
+                                                <rect key="frame" x="8" y="174" width="130" height="37"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="โอกาศฝนตก" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnq-VH-mcD">
+                                                <rect key="frame" x="148" y="41" width="75" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ความชื้น" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9O-KE-Vm5">
+                                                <rect key="frame" x="148" y="83" width="50" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="อุณหภูมิวันนี้" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDJ-YQ-8Zp">
+                                                <rect key="frame" x="148" y="132" width="75" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30.0 C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sp-2V-ocK">
+                                                <rect key="frame" x="136" y="185" width="55" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ขณะนี้" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYC-yt-DXu">
+                                                <rect key="frame" x="148" y="162" width="31" height="19"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="12"/>
+                                                <color key="textColor" red="0.0" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30.0 C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsD-gz-ciM">
+                                                <rect key="frame" x="203" y="186" width="55" height="23"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="สูงสุด" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bu-NO-uPq">
+                                                <rect key="frame" x="215" y="162" width="31" height="19"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30.0 C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6m-YL-1an">
+                                                <rect key="frame" x="269" y="186" width="55" height="23"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ต่ำสุด" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGm-LG-IPs">
+                                                <rect key="frame" x="282" y="162" width="29" height="19"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30 C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lx-yX-9KU">
+                                                <rect key="frame" x="236" y="81" width="59" height="26"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30 C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9i-oD-j6p">
+                                                <rect key="frame" x="236" y="39" width="59" height="26"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.95686274510000002" green="0.96078431369999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="211" id="IcX-PN-byd"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="tcg-6e-Ufb" firstAttribute="top" secondItem="4LX-P0-gs8" secondAttribute="topMargin" id="12N-KZ-4Tb"/>
+                                    <constraint firstItem="tcg-6e-Ufb" firstAttribute="centerX" secondItem="4LX-P0-gs8" secondAttribute="centerX" id="7YN-gI-HCZ"/>
+                                    <constraint firstItem="9Df-G8-J5e" firstAttribute="trailing" secondItem="MRr-ZI-qS3" secondAttribute="trailing" id="A1O-of-dgf"/>
+                                    <constraint firstItem="MRr-ZI-qS3" firstAttribute="bottom" secondItem="4LX-P0-gs8" secondAttribute="bottomMargin" id="O9b-mq-T3J"/>
+                                    <constraint firstItem="tcg-6e-Ufb" firstAttribute="trailing" secondItem="9Df-G8-J5e" secondAttribute="trailing" id="Obp-73-dg9"/>
+                                    <constraint firstItem="tcg-6e-Ufb" firstAttribute="leading" secondItem="9Df-G8-J5e" secondAttribute="leading" id="OqE-yF-hec"/>
+                                    <constraint firstItem="9Df-G8-J5e" firstAttribute="top" secondItem="tcg-6e-Ufb" secondAttribute="bottom" constant="8" symbolic="YES" id="R3D-Mx-uAt"/>
+                                    <constraint firstItem="tcg-6e-Ufb" firstAttribute="leading" secondItem="4LX-P0-gs8" secondAttribute="leading" constant="16" id="YQr-Xd-YQI"/>
+                                    <constraint firstItem="9Df-G8-J5e" firstAttribute="leading" secondItem="MRr-ZI-qS3" secondAttribute="leading" id="fCy-EW-jo0"/>
+                                    <constraint firstItem="MRr-ZI-qS3" firstAttribute="top" secondItem="9Df-G8-J5e" secondAttribute="bottom" constant="7" id="iKB-YY-ADY"/>
+                                    <constraint firstAttribute="trailing" secondItem="tcg-6e-Ufb" secondAttribute="trailing" constant="16" id="mc6-ee-rha"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4LX-P0-gs8" firstAttribute="leading" secondItem="eU0-OW-khi" secondAttribute="leading" id="0Z4-z0-uv3"/>
+                            <constraint firstItem="4LX-P0-gs8" firstAttribute="bottom" secondItem="XGM-Gf-2cs" secondAttribute="bottom" id="IEQ-FU-OHU"/>
+                            <constraint firstItem="4LX-P0-gs8" firstAttribute="top" secondItem="XGM-Gf-2cs" secondAttribute="top" id="cKN-CA-fIm"/>
+                            <constraint firstAttribute="trailing" secondItem="4LX-P0-gs8" secondAttribute="trailing" id="z5o-1V-Q86"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="XGM-Gf-2cs"/>
                     </view>
+                    <connections>
+                        <outlet property="CenterView" destination="9Df-G8-J5e" id="rjC-Te-hJW"/>
+                        <outlet property="HeightTable" destination="Br8-t7-9rx" id="HZl-2r-hbb"/>
+                        <outlet property="IconWeather" destination="5T6-4O-wIJ" id="dqm-Y2-tNA"/>
+                        <outlet property="NameWeather" destination="pv2-ys-EOF" id="TOX-jC-221"/>
+                        <outlet property="RainPercent" destination="N9i-oD-j6p" id="nfq-hR-9Hs"/>
+                        <outlet property="ScrollV" destination="4LX-P0-gs8" id="PF5-4w-NhA"/>
+                        <outlet property="TableView" destination="MRr-ZI-qS3" id="Ljv-em-mdt"/>
+                        <outlet property="TempCurrent" destination="4Sp-2V-ocK" id="jEK-r4-w1P"/>
+                        <outlet property="TempMax" destination="gsD-gz-ciM" id="q4U-IV-hSf"/>
+                        <outlet property="TempMin" destination="r6m-YL-1an" id="A8C-Da-B08"/>
+                        <outlet property="TopView" destination="tcg-6e-Ufb" id="KTh-2K-z4s"/>
+                        <outlet property="humidity" destination="1Lx-yX-9KU" id="Bvx-6i-7Vu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ncr-bf-yV1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2393" y="1978"/>
+            <point key="canvasLocation" x="-887.20000000000005" y="2199.7536945812808"/>
         </scene>
     </scenes>
     <resources>
@@ -1208,4 +1421,7 @@
         <image name="iconiFarm" width="1024" height="1024"/>
         <image name="refresh-1" width="396.3870849609375" height="396.3870849609375"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="5wG-YI-ptP"/>
+    </inferredMetricsTieBreakers>
 </document>

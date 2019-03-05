@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 import GoogleMaps
+import Firebase
+import NVActivityIndicatorView
 
 class MapTestViewController: UIViewController, GMSMapViewDelegate{
 
@@ -35,36 +37,36 @@ class MapTestViewController: UIViewController, GMSMapViewDelegate{
     var markerPoly:GMSMarker!
     
     var tapMap = false
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    var AreaDate:Date!
+    
+    var activitor:NVActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let IndicatorSize:CGFloat = 120
+        let IndicatorFram = CGRect(x: (view.frame.width-IndicatorSize)/2, y: (view.frame.height-IndicatorSize)/2, width: IndicatorSize, height: IndicatorSize)
+        activitor = NVActivityIndicatorView(frame: IndicatorFram, type: .ballPulse, color: UIColor.white, padding: 20.0)
+        
+        view.addSubview(activitor)
+        
         MapView.delegate = self
 
-        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 18.0)
+        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 15.0)
         
         MapView.mapType = GMSMapViewType.satellite
         MapView.camera = camera
     
-        
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
-        
-        let newImage = resizeImage(image: UIImage(named: "push-pin")!, targetSize: CGSize(width: 30, height: 30))
-        
-        let markerView = UIImageView(image: newImage)
-    
-        markerView.tintColor = UIColor.red
-        
-        marker.iconView = markerView
-        
-        marker.map = MapView
-        
-
         CustomView()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reloadMap(notification:)), name: Notification.Name("reloadMap"), object: nil)
+        
+       
 
     }
+    
     
     
     func CustomView() {
@@ -73,17 +75,30 @@ class MapTestViewController: UIViewController, GMSMapViewDelegate{
 
     }
     
+    @objc func reloadMap(notification: Notification){
+        
+        loadDrawMap()
+        
+    }
+    
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
           print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
         
         
         if tapMap == true {
-        
-        mapView.clear()
    
         self.path.add(CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude))
         positionMarker.append(["lat": Double(coordinate.latitude), "long": Double(coordinate.longitude)])
+           
+        let data = GeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            
+        appDelegate.LLData.append(data)
+            
         
+        appDelegate.AreaDistanc = GMSGeometryArea(path)
+   
+            
+            
         Polyline = GMSPolyline(path: path)
         Polyline.strokeColor = UIColor.red
         Polyline.strokeWidth = 2.0
@@ -94,8 +109,9 @@ class MapTestViewController: UIViewController, GMSMapViewDelegate{
         Polygon.strokeColor = UIColor.red
         Polygon.strokeWidth = 2.0
         Polygon.fillColor = UIColor.white.withAlphaComponent(0.7)
+
+  
         Polygon.map = MapView
-        
         
         
         var i = 0
@@ -107,7 +123,7 @@ class MapTestViewController: UIViewController, GMSMapViewDelegate{
             
             markerPoly.position = CLLocationCoordinate2D(latitude: positionMarker[i]["lat"]!, longitude: positionMarker[i]["long"]!)
             
-            let newImage = resizeImage(image: UIImage(named: "placeholder-3")!, targetSize: CGSize(width: 30, height: 30))
+            let newImage = resizeImage(image: UIImage(named: "placeholder-3")!, targetSize: CGSize(width: 20, height: 20))
             let markerView = UIImageView(image: newImage)
             
             markerPoly.iconView = markerView
@@ -131,15 +147,12 @@ class MapTestViewController: UIViewController, GMSMapViewDelegate{
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         
         print("OKKKK")
-       // appDelegate.selectID = marker.snippet!
-     //  performSegue(withIdentifier: "goArea", sender: self)
+        print(marker.snippet)
+//
+        appDelegate.selectID = marker.snippet!
+       performSegue(withIdentifier: "goArea", sender: self)
+
         
-        UIGraphicsBeginImageContext(MapView.frame.size);
-        MapView.layer.render(in: UIGraphicsGetCurrentContext()!)
-        var screenShot = UIGraphicsGetImageFromCurrentImageContext()
-        var imaView = UIImageView(image: resizeImage(image: screenShot!, targetSize: CGSize(width: 50.0, height: 50.0)))
-        MapView.addSubview(imaView)
-        UIGraphicsEndImageContext()
         
         return true
         
@@ -148,10 +161,41 @@ class MapTestViewController: UIViewController, GMSMapViewDelegate{
 
 
     
+    func InsertAreaData(Aname:String, Atype:String, Aprice:Int,ADistanc:Double) {
+        
+        let db = Firestore.firestore()
+        
+        var ref: DocumentReference? = nil
+        
+        let zoom = MapView.camera.zoom
+        
+        
+        ref = db.collection("DBArea").addDocument(data: [
+            "Aname": Aname,
+            "Adistanc": ADistanc,
+            "Aprice": Aprice,
+            "Atype": Atype,
+            "Azoom": zoom,
+            "user_id": appDelegate.UserDetail["id"]!,
+            "LLdata": appDelegate.LLData
+            
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Add New Area ")
+                
+            }
+        }
+        
+    }
+
+    
     
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationItem.title? = "i Farm"
         print("IN")
+        loadDrawMap()
     }
     
     
@@ -171,6 +215,9 @@ class MapTestViewController: UIViewController, GMSMapViewDelegate{
         CancelBT.isHidden = true
         MapView.clear()
 
+        positionMarker.removeAll()
+        appDelegate.LLData.removeAll()
+        
         tapMap = false
         
     }
@@ -181,6 +228,7 @@ class MapTestViewController: UIViewController, GMSMapViewDelegate{
         path = GMSMutablePath()
         
         positionMarker.removeAll()
+        appDelegate.LLData.removeAll()
         
     }
     
@@ -194,6 +242,9 @@ class MapTestViewController: UIViewController, GMSMapViewDelegate{
             print("Add")
     
             path = GMSMutablePath()
+            
+            positionMarker.removeAll()
+            appDelegate.LLData.removeAll()
            
              tapMap = true
             
@@ -203,6 +254,7 @@ class MapTestViewController: UIViewController, GMSMapViewDelegate{
             RefreshAreaBT.isHidden = true
             CancelBT.isHidden = true
             print("Else")
+            
             
             
             markerPoly = GMSMarker()
@@ -222,10 +274,99 @@ class MapTestViewController: UIViewController, GMSMapViewDelegate{
             positionMarker.removeAll()
             
             
+            //Insert พื้นที่
+            InsertAreaData(Aname: "แปลงว่าง", Atype: "ข้าวโพด", Aprice: 340000, ADistanc: appDelegate.AreaDistanc)
+            
+            
+            positionMarker.removeAll()
+            appDelegate.LLData.removeAll()
+            
             tapMap = false
             
+            NotificationCenter.default.post(name: Notification.Name("reloadArea"), object: nil)
             
+    
         }
+        
+        
+    }
+    
+    func loadDrawMap() {
+        
+        MapView.clear()
+        
+        activitor.startAnimating()
+        
+        var i = 0
+        while i < appDelegate.AreaAll.count {
+        
+            path = GMSMutablePath()
+        
+            var lat = 0.0
+            var long = 0.0
+            
+            var LL = [GeoPoint]()
+            LL = appDelegate.AreaAll[i]["Apath"]! as! [GeoPoint]
+            
+            var j = 0
+            while j < LL.count {
+                
+                path.add(CLLocationCoordinate2D(latitude: LL[j].latitude, longitude: LL[j].longitude))
+                
+                lat = lat + LL[j].latitude
+                long = long + LL[j].longitude
+                j = j + 1
+            }
+            
+            
+            Polygon = GMSPolygon(path: path)
+            
+            
+            
+            markerPoly = GMSMarker()
+            
+            markerPoly.position = CLLocationCoordinate2D(latitude: lat/Double(LL.count), longitude: long/Double(LL.count))
+            
+            //ImageIcon
+            var k = 0
+            var imageIcon = ""
+            var ColorArea:UIColor!
+            while k < appDelegate.PlanType.count  {
+                
+                if "\(appDelegate.AreaAll[i]["Atype"]!)" == "\(appDelegate.PlanType[k]["Pname"]!)" {
+                    imageIcon = "\(appDelegate.PlanType[k]["Ppic"]!)"
+                    ColorArea = UIColor.yellow.withAlphaComponent(0.7)
+                }else {
+                    imageIcon = "faq"
+                    ColorArea = UIColor.clear
+                }
+                k = k + 1
+            }
+
+            let newImage = resizeImage(image: UIImage(named: imageIcon)!, targetSize: CGSize(width: 40, height: 80))
+            let markerView = UIImageView(image: newImage)
+            
+            markerPoly.snippet = "\(appDelegate.AreaAll[i]["Aid"]!)"
+            
+            markerPoly.iconView = markerView
+            
+            
+            markerPoly.map = MapView
+            
+            
+            Polygon.strokeColor = UIColor.red
+            Polygon.strokeWidth = 2.0
+            Polygon.fillColor = ColorArea
+            Polygon.map = MapView
+            
+            
+            i = i + 1
+        }
+        
+      
+        activitor.stopAnimating()
+        
+        
         
         
     }

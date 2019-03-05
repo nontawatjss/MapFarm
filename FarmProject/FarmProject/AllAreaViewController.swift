@@ -8,14 +8,17 @@
 
 import UIKit
 import GoogleMaps
+import Foundation
+import FirebaseFirestore
 
-class AllAreaViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class AllAreaViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     
     @IBOutlet weak var AreaDistance: UILabel!
     
     @IBOutlet weak var PriceAll: UILabel!
     
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var CollectionView: UICollectionView!
     override func viewDidLoad() {
@@ -35,34 +38,74 @@ class AllAreaViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return appDelegate.AreaAll.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = CollectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AreaCell
         
-        cell.NameArea.text = "แปลง \(indexPath.item+1)"
+        cell.NameArea.text = "\(appDelegate.AreaAll[indexPath.item]["Aname"]!)"
         
 
         
         // Create a rectangular path
         let rect = GMSMutablePath()
 
-        rect.add(CLLocationCoordinate2D(latitude: 15.237350, longitude: 104.843238))
-        rect.add(CLLocationCoordinate2D(latitude: 15.236702, longitude: 104.844286))
-        rect.add(CLLocationCoordinate2D(latitude: 15.236600, longitude: 104.843479))
+        
+        var LL = [GeoPoint]()
+        
+        LL = appDelegate.AreaAll[indexPath.item]["Apath"]! as! [GeoPoint]
+
+        var lat = 0.0
+        var long = 0.0
+        
+        var i = 0
+        while i < LL.count {
+            
+            print("\(LL[i].latitude)")
+            
+            rect.add(CLLocationCoordinate2D(latitude: LL[i].latitude, longitude: LL[i].longitude))
+            
+            lat = lat + LL[i].latitude
+            long = long + LL[i].longitude
+            
+            i = i + 1
+        }
+        
+        lat = (lat/Double(LL.count))
+        long = (long/Double(LL.count))
+
+      
+        let polygon = GMSPolygon(path: rect)
+        
+        
+        //ImageIcon
+        var j = 0
+        var imageIcon = ""
+        var ColorArea:UIColor!
+        while j < appDelegate.PlanType.count  {
+            
+            if "\(appDelegate.AreaAll[indexPath.item]["Atype"]!)" == "\(appDelegate.PlanType[j]["Pname"]!)" {
+                imageIcon = "\(appDelegate.PlanType[j]["Ppic"]!)"
+                ColorArea = UIColor.yellow.withAlphaComponent(0.7)
+            }else {
+                imageIcon = "faq"
+               ColorArea = UIColor.clear
+            }
+            j = j + 1
+        }
+        
+        
         
         // Create the polygon, and assign it to the map.
-        let polygon = GMSPolygon(path: rect)
-        polygon.fillColor = UIColor.white.withAlphaComponent(0.5)
+        polygon.fillColor = ColorArea
         polygon.strokeColor = .red
-        polygon.strokeWidth = 2
+        polygon.strokeWidth = 1.5
         polygon.map = cell.MapView
         
-        var lat = (15.237350 + 15.236702 + 15.236600)/3.0
-        var long = (104.843238 + 104.844286 + 104.843479)/3.0
-        
-        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 17.0)
+        var zoom = Float("\(appDelegate.AreaAll[indexPath.item]["Azoom"]!)")
+
+        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: zoom!-1)
         
         cell.MapView.mapType = GMSMapViewType.satellite
         cell.MapView.camera = camera
@@ -70,7 +113,7 @@ class AllAreaViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         cell.MapView.isUserInteractionEnabled = false
         
-        cell.addSubview(addCartIcon(nameImage: "cornIcon", widthCell: Int(cell.frame.width)))
+        cell.addSubview(addCartIcon(nameImage: imageIcon, widthCell: Int(cell.frame.width)))
         
         return cell
     }
@@ -90,11 +133,15 @@ class AllAreaViewController: UIViewController, UICollectionViewDelegate, UIColle
         print(indexPath.item)
         
         
+        appDelegate.selectID = "\(appDelegate.AreaAll[indexPath.item]["Aid"]!)"
+        performSegue(withIdentifier: "goArea", sender: self)
+        
+        
     }
     
     func addCartIcon(nameImage:String,widthCell:Int) -> UIImageView{
 
-        let ImageView = UIImageView(frame: CGRect(x: widthCell-40, y: 2, width: 45 , height: 45))
+        let ImageView = UIImageView(frame: CGRect(x: widthCell-45, y: 0, width: 45 , height: 45))
         
         let image = UIImage(named: nameImage)
         ImageView.contentMode = .scaleAspectFit
@@ -104,6 +151,8 @@ class AllAreaViewController: UIViewController, UICollectionViewDelegate, UIColle
         return ImageView
         
     }
+    
+    
     
     
 }

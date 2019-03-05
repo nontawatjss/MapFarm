@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var AreaDistanc = 0.0
     var LoginStatus = false
     var UserDetail = [String: String]()
+    var AreaAll = [[String:Any]]()
+    var PlanType = [[String:Any]]()
+    
     
     
 

@@ -34,15 +34,23 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate, UICollecti
         activityIndicator.startAnimating()
         view.isUserInteractionEnabled = false
         
-
-        
         getUserDetail(username: UserDefaults.standard.string(forKey: "UsernameNow")!)
-        print("Usernow \(UserDefaults.standard.string(forKey: "UsernameNow")!)")
+       
+        //print("Usernow \(UserDefaults.standard.string(forKey: "UsernameNow")!)")
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(self.reloadAreaDB(notification:)), name: Notification.Name("reloadArea"), object: nil)
        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationItem.title? = "หน้าแรก"
+    
+    }
+    
+    @objc func reloadAreaDB(notification: Notification){
+        
+        getAreaAll()
+        
     }
     
     
@@ -187,6 +195,99 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate, UICollecti
                 }
             }
             
+            self.activityIndicator.stopAnimating()
+            self.getAreaAll()
+            self.getPlantType()
+           
+            
+        }
+        
+        
+    }
+    
+    
+    func getAreaAll() {
+        
+        self.activityIndicator.startAnimating()
+        
+        appDelegate.AreaAll.removeAll()
+        
+        
+        let db = Firestore.firestore()
+        
+  
+        db.collection("DBArea").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                   // print("\(document.documentID) => \(document.data())")
+                    
+                    if self.appDelegate.UserDetail["id"]! == "\(document.data()["user_id"]!)" {
+                        
+                        
+                        let LLdata = document.get("LLdata") as! Array<GeoPoint>
+                        
+                        self.appDelegate.LLData = LLdata
+                        
+                        
+                        self.appDelegate.AreaAll.append(["Aid": document.documentID,
+                                                         "Aname": document.data()["Aname"]!,
+                                                         "Aprice": document.data()["Aprice"]!,
+                                                         "Adistace": document.data()["Adistanc"]!,
+                                                         "Apath": LLdata,
+                                                         "Atype": document.data()["Atype"]!,
+                                                         "Azoom": document.data()["Azoom"]!,
+                                                         "Auser_id": document.data()["user_id"]!
+                            ])
+                        
+                        
+                       
+                        
+                    }
+                }
+            }
+            
+            
+             print("\(self.appDelegate.AreaAll.count)")
+            
+            self.activityIndicator.stopAnimating()
+            self.view.isUserInteractionEnabled = true
+            
+            
+            NotificationCenter.default.post(name: Notification.Name("reloadMap"), object: nil)
+            
+        }
+        
+    }
+    
+    
+    func getPlantType() {
+        
+        appDelegate.AreaAll.removeAll()
+        
+        let db = Firestore.firestore()
+        
+        db.collection("DBPlant").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                  
+                    
+               
+                    print("\(document.data()["Pname"]!)")
+                    
+                    self.appDelegate.PlanType.append(["Pname": document.data()["Pname"]!,
+                                                      "Ppic": document.data()["Ppic"]!,
+                                                      "Pduring": document.data()["Pduring"]!
+                                                      ])
+                    
+                }
+            }
+            
+            
+            print("\(self.appDelegate.AreaAll.count)")
             
             self.activityIndicator.stopAnimating()
             self.view.isUserInteractionEnabled = true
