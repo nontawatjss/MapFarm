@@ -20,6 +20,8 @@
 		C511C0132213506500B09FA8 /* WorkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C511C0122213506500B09FA8 /* WorkerViewController.swift */; };
 		C51D44A7222B10D50018C214 /* AllAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51D44A6222B10D50018C214 /* AllAreaViewController.swift */; };
 		C51D44A9222B14EE0018C214 /* AreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51D44A8222B14EE0018C214 /* AreaCell.swift */; };
+		C53182B52233FE850036DB99 /* WorkerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53182B42233FE850036DB99 /* WorkerCell.swift */; };
+		C53182B72234074C0036DB99 /* AlertWorkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53182B62234074C0036DB99 /* AlertWorkerViewController.swift */; };
 		C551622521F8A49700B847D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551622421F8A49700B847D5 /* AppDelegate.swift */; };
 		C551622721F8A49700B847D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551622621F8A49700B847D5 /* ViewController.swift */; };
 		C551622A21F8A49700B847D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C551622821F8A49700B847D5 /* Main.storyboard */; };
@@ -75,6 +77,8 @@
 		C511C0122213506500B09FA8 /* WorkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerViewController.swift; sourceTree = "<group>"; };
 		C51D44A6222B10D50018C214 /* AllAreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAreaViewController.swift; sourceTree = "<group>"; };
 		C51D44A8222B14EE0018C214 /* AreaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaCell.swift; sourceTree = "<group>"; };
+		C53182B42233FE850036DB99 /* WorkerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerCell.swift; sourceTree = "<group>"; };
+		C53182B62234074C0036DB99 /* AlertWorkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWorkerViewController.swift; sourceTree = "<group>"; };
 		C551622121F8A49700B847D5 /* FarmProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FarmProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C551622421F8A49700B847D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C551622621F8A49700B847D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -192,9 +196,11 @@
 				C511C00C221309FD00B09FA8 /* RegisterViewController.swift */,
 				C501863B22288F460087A8CB /* HomeViewController.swift */,
 				C51D44A6222B10D50018C214 /* AllAreaViewController.swift */,
+				C53182B62234074C0036DB99 /* AlertWorkerViewController.swift */,
 				C551623F21F8AE8100B847D5 /* AccountCell.swift */,
 				C511C01022134CC600B09FA8 /* TaskCell.swift */,
 				C501863922286B1E0087A8CB /* MapTestViewController.swift */,
+				C53182B42233FE850036DB99 /* WorkerCell.swift */,
 				C599371D2217FA9700265FA2 /* LoginWorkerViewController.swift */,
 				C51D44A8222B14EE0018C214 /* AreaCell.swift */,
 				C50FC3B1221540EA00534435 /* ForgetViewController.swift */,
@@ -381,7 +387,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-FarmProject/Pods-FarmProject-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
@@ -403,7 +409,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
@@ -433,13 +439,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FarmProject/Pods-FarmProject-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
@@ -458,6 +462,7 @@
 				C551623C21F8AE5700B847D5 /* ManagerViewController.swift in Sources */,
 				C551622721F8A49700B847D5 /* ViewController.swift in Sources */,
 				C551622521F8A49700B847D5 /* AppDelegate.swift in Sources */,
+				C53182B52233FE850036DB99 /* WorkerCell.swift in Sources */,
 				C51D44A7222B10D50018C214 /* AllAreaViewController.swift in Sources */,
 				C511C00D221309FD00B09FA8 /* RegisterViewController.swift in Sources */,
 				C5C8702E2210B2C000393AED /* AddAreaViewController.swift in Sources */,
@@ -471,6 +476,7 @@
 				C511C01122134CC600B09FA8 /* TaskCell.swift in Sources */,
 				C551624021F8AE8100B847D5 /* AccountCell.swift in Sources */,
 				C50FC3B2221540EA00534435 /* ForgetViewController.swift in Sources */,
+				C53182B72234074C0036DB99 /* AlertWorkerViewController.swift in Sources */,
 				C501863E22288FC60087A8CB /* HomeCell.swift in Sources */,
 				C59937202217FF0200265FA2 /* Extension.swift in Sources */,
 				C5C8702C2210AF7B00393AED /* TabbarController.swift in Sources */,

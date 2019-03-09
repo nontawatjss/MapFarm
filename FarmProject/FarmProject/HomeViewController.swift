@@ -128,10 +128,11 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate, UICollecti
             break
         case 2:
             print(indexPath.item)
-             performSegue(withIdentifier: "goMap", sender: self)
+             //performSegue(withIdentifier: "goMap", sender: self)
             break
         case 3:
             print(indexPath.item)
+            performSegue(withIdentifier: "goWorker", sender: self)
             break
         case 4:
             print(indexPath.item)
@@ -190,6 +191,9 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate, UICollecti
                         self.appDelegate.UserDetail["lname"] = "\(document.data()["lname"]!)"
                         self.appDelegate.UserDetail["email"] = "\(document.data()["email"]!)"
                         self.appDelegate.UserDetail["pic"] = "\(document.data()["pic"]!)"
+                        self.appDelegate.UserDetail["iCode"] = "\(document.data()["iCode"]!)"
+                        self.appDelegate.UserDetail["user_from"] = "\(document.data()["user_from"]!)"
+                        self.appDelegate.UserDetail["user_type"] = "\(document.data()["user_type"]!)"
                         
                     }
                 }

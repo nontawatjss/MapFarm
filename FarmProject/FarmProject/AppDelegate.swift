@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var UserDetail = [String: String]()
     var AreaAll = [[String:Any]]()
     var PlanType = [[String:Any]]()
+    var WorkerAll = [[String:Any]]()
     
     
     

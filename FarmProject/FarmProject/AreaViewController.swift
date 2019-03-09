@@ -154,7 +154,9 @@ class AreaViewController: UIViewController , UITableViewDelegate, UITableViewDat
                 case "clear sky":
                     self.NameWeather.text = "ท้องฟ้าแจ่มใส"
                     break
-                    
+                case "few clouds":
+                    self.NameWeather.text = "มีเมฆน้อย"
+                    break
                 default:
                     break
                     
