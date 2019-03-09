@@ -125,6 +125,7 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate, UICollecti
             break
         case 1:
            print(indexPath.item)
+           performSegue(withIdentifier: "goPrice", sender: self)
             break
         case 2:
             print(indexPath.item)

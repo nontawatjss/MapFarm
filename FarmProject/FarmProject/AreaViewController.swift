@@ -157,6 +157,9 @@ class AreaViewController: UIViewController , UITableViewDelegate, UITableViewDat
                 case "few clouds":
                     self.NameWeather.text = "มีเมฆน้อย"
                     break
+                case "broken clouds":
+                    self.NameWeather.text = "มีเมฆหนา"
+                    break
                 default:
                     break
                     
@@ -190,8 +193,8 @@ class AreaViewController: UIViewController , UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        HeightTable.constant = CGFloat(10*68)
-        return 10
+        HeightTable.constant = CGFloat(5*68)
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -201,6 +204,8 @@ class AreaViewController: UIViewController , UITableViewDelegate, UITableViewDat
         cell.TitleName.text = "เตรียมดินสำหรับปลูก"
         cell.Daytask.text = "วันที่ 1-7"
         cell.Status.text = "ส่งแจ้งเตือน"
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 5.0
         
         
         

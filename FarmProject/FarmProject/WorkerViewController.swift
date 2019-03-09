@@ -46,6 +46,14 @@ class WorkerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
        navigationItem.title = "คนงานในฟาร์ม"
+        
+        let backButton = UIBarButtonItem()
+        
+        backButton.title = ""
+        backButton.tintColor = UIColor.white
+        
+        self.navigationController!.navigationBar.topItem!.backBarButtonItem = backButton
+        
     }
     
 
@@ -66,22 +74,26 @@ class WorkerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.ImageCell.kf.setImage(with: url)
         
         cell.ImageCell.layer.masksToBounds = true
-        cell.ImageCell.layer.cornerRadius = 20.0
+        cell.ImageCell.layer.cornerRadius = 5.0
         
         var statusname = ""
         switch "\(appDelegate.WorkerAll[indexPath.item]["status"]!)" {
         case "wait":
             statusname = "รอการตรวจสอบ"
             cell.JobPosition.backgroundColor = UIColor.orange
+          
            break
         case "accept":
             statusname = "สมาชิก"
             cell.JobPosition.backgroundColor = UIColor.green
+         
             break
         default:
             print("NOWAY")
         }
-        
+         cell.JobPosition.layer.masksToBounds = true
+        cell.JobPosition.textColor = UIColor.white
+        cell.JobPosition.layer.cornerRadius = 5.0
         cell.JobPosition.text = "\(statusname)"
         
         

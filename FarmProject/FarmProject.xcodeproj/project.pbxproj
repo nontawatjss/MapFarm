@@ -59,6 +59,7 @@
 		C5C8702E2210B2C000393AED /* AddAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C8702D2210B2C000393AED /* AddAreaViewController.swift */; };
 		C5F78DB521F8DC7300A05D1D /* AreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F78DB421F8DC7300A05D1D /* AreaViewController.swift */; };
 		CA6A86FA950377B3C7D30ABB /* Pods_FarmProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0241D58CF118C29A970328BE /* Pods_FarmProject.framework */; };
+		EFE84B9C22347524005F43FE /* PriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE84B9B22347524005F43FE /* PriceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +135,7 @@
 		C5C8702B2210AF7B00393AED /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		C5C8702D2210B2C000393AED /* AddAreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAreaViewController.swift; sourceTree = "<group>"; };
 		C5F78DB421F8DC7300A05D1D /* AreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaViewController.swift; sourceTree = "<group>"; };
+		EFE84B9B22347524005F43FE /* PriceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceViewController.swift; sourceTree = "<group>"; };
 		F5FA2C6F13F9A71EE65192E5 /* Pods-FarmProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FarmProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FarmProject/Pods-FarmProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -195,6 +197,7 @@
 				C511C00E221320BA00B09FA8 /* AlertLoginViewController.swift */,
 				C511C00C221309FD00B09FA8 /* RegisterViewController.swift */,
 				C501863B22288F460087A8CB /* HomeViewController.swift */,
+				EFE84B9B22347524005F43FE /* PriceViewController.swift */,
 				C51D44A6222B10D50018C214 /* AllAreaViewController.swift */,
 				C53182B62234074C0036DB99 /* AlertWorkerViewController.swift */,
 				C551623F21F8AE8100B847D5 /* AccountCell.swift */,
@@ -479,6 +482,7 @@
 				C53182B72234074C0036DB99 /* AlertWorkerViewController.swift in Sources */,
 				C501863E22288FC60087A8CB /* HomeCell.swift in Sources */,
 				C59937202217FF0200265FA2 /* Extension.swift in Sources */,
+				EFE84B9C22347524005F43FE /* PriceViewController.swift in Sources */,
 				C5C8702C2210AF7B00393AED /* TabbarController.swift in Sources */,
 				C501863A22286B1E0087A8CB /* MapTestViewController.swift in Sources */,
 				C599371E2217FA9700265FA2 /* LoginWorkerViewController.swift in Sources */,
